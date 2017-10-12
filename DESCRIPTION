@@ -1,0 +1,19 @@
+Package: heartrate
+Type: Package
+Title: This package analysis resting heart rate data
+Version: 0.1.2
+Author: Corey Kimzey
+Maintainer: Corey Kimzey <corey2kimzey@gmail.com>
+Description: This package was created for my intro to computing class at the University of Rochester. It makes analysis of my resting heart rate data easier.
+    I hope in the future that it will be even applicable to those who have different types of data.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: knitr,
+    rmarkdown,
+    testthat,
+    magrittr,
+    tibble,
+    forecast,
+    googlesheets
+VignetteBuilder: knitr
