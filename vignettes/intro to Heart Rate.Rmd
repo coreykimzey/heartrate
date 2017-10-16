@@ -98,7 +98,7 @@ tester2 <- tester[-1,]
 ```
 
 
-This is just a plot of my resting heart rate. It looks like the plot might be cyclical. So Then i thought to compare across days of the week.
+This is just a plot of my resting heart rate. It looks like the plot might be cyclical. So I thought to compare across days of the week.
 ```{r}
 plot(tester2$Date, tester2$"Resting Heart Rate", type = "l",
      ylab = "Resting Heart Rate(Beats Per Min)", xlab = "Date")
@@ -106,7 +106,7 @@ plot(tester2$Date, tester2$"Resting Heart Rate", type = "l",
 
 
 
-Interestingly, it seems that my resting heart rate is high on Monday and Friday. I'm not sure why that would be. This would probably something I would continually look at.
+Interestingly, it seems that my resting heart rate is high on Monday ,Friday, Sunday. I'm not sure why that would be. This would probably something I would continually look at.
 ```{r}
 days_of_week <- as.factor(c("T", "W", "Th", "F", "S", "Su", "M"))
 days_of_week <- rep(days_of_week, 100)[1:33]
@@ -125,16 +125,36 @@ Although, currently if we look at the the Tukey Multiple comparison test with a 
 saver <- TukeyHSD(aov(tester2$`Resting Heart Rate` ~ tester2$days_of_week))
 kable(saver$`tester$days_of_week`)
 ```
-
+Now I though I'd look at some of the vaiables I created before but now with the dataset without the outlier and looking at the lag of sleep, miles walking, and homework totals. This time I'm going to look at them all together or in other words fit a multivariate regression model. Again, we see that none of these covariates are statistically significant.
 
 ```{r}
-tester2 %>% plot_lms(., col_names = c("Inf", "Computing", "Probability"),
+tester2 %>% plot_lms(., col_names = c("lag_sleep", "lag_walking", "lag_hwk_total"),
                     response_variable = "Resting Heart Rate", 
-                    multivariate = TRUE )
+                    multivariate = TRUE)
 
 
 ```
 
+
+Then I thought to just look at the indivdual classes and how much time I spend on those classes. Again I didn't see any statistically significant p-values for the correlation coefficient. Although, the variable for my probability class was close.
+```{r}
+
+
+tester2 %>% plot_lms(., col_names = c("Inf", "Computing", "Probability", "Other"),
+                    response_variable = "Resting Heart Rate")
+```
+
+
+Then again, I thought maybe if I looked at the pervious days homework for each one of those classes I would see some evidence. These variables in general seemed to even have larger p-values and not to fit the data well.
+```{r}
+tester2 <- tester2 %>% mutate(lag_inf = lag(tester2$"Inf", 1),
+                            lag_comp= lag(tester2$"Computing", 1),
+                            lag_prob = lag(tester2$"Probability", 1),
+                            lag_other = lag(tester2$Other))
+
+tester2 %>% plot_lms(., col_names = c("lag_inf", "lag_comp", "lag_prob", "lag_other"),
+                    response_variable = "Resting Heart Rate")
+```
 
 #Answering Questions of HW 5
 1) I continued to work on my R package. I added some functionailty to my plot_lms function. It know also outputs the p-value for the coefficient of the slope of the line.
