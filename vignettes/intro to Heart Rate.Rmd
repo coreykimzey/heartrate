@@ -57,7 +57,7 @@ This function produces a series of scatterplots that match up with the columns s
 ```{r}
 par(mar= c(5.0, 4.0, 3.0, 2))
 tester %>% plot_lms(., col_names = c("Hrs on Hwk", "Miles walking", "Estimated Sleep"),
-         response_variable = "Resting Heart Rate")
+         response_variable = "Resting Heart Rate", multivariate = TRUE)
 ```
 
 

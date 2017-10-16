@@ -27,7 +27,7 @@ plot_lms <- function(dataset, col_names, response_variable, multivariate = FALSE
     }
 
     line_needed <- lm(response_col ~ predictor_col)
-    names(line_needed$coefficients)[2:3] <- col_names
+    names(line_needed$coefficients)[2:(length(col_names)+1)] <- col_names
     return(summary(line_needed))
     }
 
