@@ -35,7 +35,8 @@ tester
 I created a function that will create target work out ranges based off \url{https://www.active.com/fitness/articles/how-to-calculate-your-training-heart-rate-zones}. I think this could be useful if I tracked my heart rate during work outs I could see if my heart rates during the work out were in my target heart range. Here is an example of that:
 ```{r}
 
-ranged <- target_ranges(tester$`Resting Heart Rate`, time_data = tester$Date, age = 24)
+ranged <- target_ranges(tester$`Resting Heart Rate`, time_data = tester$Date,
+                        age = 24)
 plot(ranged[,1], ranged[,2], type = "l", ylim = c(min(ranged[,2]),
                                                   max(ranged[,3])),
      xlab = "Date",
@@ -84,9 +85,22 @@ tester %>% plot_cor(. ,col_names = c("Hrs on Hwk", "Miles walking", "Estimated S
 ```
 
 #Other Analysis of the Resting Heart Rate Data.
+The first point in the resting heart rate looks like it might be an outlier. Therefore, I thought about removing it. Also the first day I tried to use a heart rate monitor but I don't believe that it functions correctly.
+
+```{r}
+tester %>% select("Resting Heart Rate") %>%  boxplot() 
+``` 
+
+```{r}
+tester2 <- tester[-1,]
+
+
+```
+
+
 This is just a plot of my resting heart rate. It looks like the plot might be cyclical. So Then i thought to compare across days of the week.
 ```{r}
-plot(tester$Date, tester$"Resting Heart Rate", type = "l",
+plot(tester2$Date, tester2$"Resting Heart Rate", type = "l",
      ylab = "Resting Heart Rate(Beats Per Min)", xlab = "Date")
 ```
 
@@ -95,8 +109,11 @@ plot(tester$Date, tester$"Resting Heart Rate", type = "l",
 Interestingly, it seems that my resting heart rate is high on Monday and Friday. I'm not sure why that would be. This would probably something I would continually look at.
 ```{r}
 days_of_week <- as.factor(c("T", "W", "Th", "F", "S", "Su", "M"))
-tester$days_of_week <- days_of_week
-mean_ave <- by(tester$`Resting Heart Rate`, tester$days_of_week, function(x) mean(x, na.rm = TRUE))
+days_of_week <- rep(days_of_week, 100)[1:33]
+tester2$days_of_week <- days_of_week
+
+
+mean_ave <- by(tester2$`Resting Heart Rate`, tester2$days_of_week, function(x) mean(x, na.rm = TRUE))
 mean_ave_df <- as.data.frame(do.call(rbind, list(mean_ave)))
 kable(mean_ave_df)
 ```
@@ -105,9 +122,19 @@ kable(mean_ave_df)
 
 Although, currently if we look at the the Tukey Multiple comparison test with a 95% family wise confidence level. We see that none of the of comparisons are statistically significant.
 ```{r}
- TukeyHSD(aov(tester$`Resting Heart Rate` ~ tester$days_of_week))
+saver <- TukeyHSD(aov(tester2$`Resting Heart Rate` ~ tester2$days_of_week))
+kable(saver$`tester$days_of_week`)
+```
+
+
+```{r}
+tester2 %>% plot_lms(., col_names = c("Inf", "Computing", "Probability"),
+                    response_variable = "Resting Heart Rate", 
+                    multivariate = TRUE )
+
 
 ```
+
 
 #Answering Questions of HW 5
 1) I continued to work on my R package. I added some functionailty to my plot_lms function. It know also outputs the p-value for the coefficient of the slope of the line.
