@@ -1,5 +1,6 @@
 
-plot_lms <- function(dataset, col_names, response_variable, ...){
+plot_lms <- function(dataset, col_names, response_variable, multivariate = FALSE, ...){
+  if(multivariate == FALSE){
   summary_line = NULL
   par(mfrow=c(ceiling(length(col_names)/2), 2))
   for(i in 1:length(col_names)){
@@ -18,6 +19,15 @@ plot_lms <- function(dataset, col_names, response_variable, ...){
     abline(a = line_needed$coefficients[1], b = line_needed$coefficients[2], ... )
 
   }
+  }else{
+    response_col <- dataset[[response_variable]]
+    predictor_col <- matrix(nrow = nrow(dataset), ncol = length(col_names))
+    for(i in 1:length(col_names)){
+    predictor_col[,i] <- dataset[[col_names[i]]]
+    }
+    line_needed <- lm(response_col ~ predictor_col)
+    return(summary(line_needed))
+    }
 
 
 }
