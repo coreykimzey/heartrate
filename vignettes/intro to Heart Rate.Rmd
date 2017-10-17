@@ -109,7 +109,7 @@ plot(tester2$Date, tester2$"Resting Heart Rate", type = "l",
 Interestingly, it seems that my resting heart rate is high on Monday ,Friday, Sunday. I'm not sure why that would be. This would probably something I would continually look at.
 ```{r}
 days_of_week <- as.factor(c("T", "W", "Th", "F", "S", "Su", "M"))
-days_of_week <- rep(days_of_week, 100)[1:33]
+days_of_week <- rep(days_of_week, 100)[1:nrow(tester2)]
 tester2$days_of_week <- days_of_week
 
 
