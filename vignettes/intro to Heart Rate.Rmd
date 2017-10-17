@@ -156,7 +156,7 @@ tester2 %>% plot_lms(., col_names = c("lag_inf", "lag_comp", "lag_prob", "lag_ot
                     response_variable = "Resting Heart Rate")
 ```
 
-#Answering Questions of HW 5
+#Answering Questions of HW 6
 1) I continued to work on my R package. I added some functionailty to my plot_lms function. It know also outputs the p-value for the coefficient of the slope of the line.
 
 2) I did try to add tidyverse commands to make my functions more readable. Although, some of my code would turn vectors into time series when I converted them to tibbles. So hopefully, I can fix that in the future. I think my code is more readable now, especially the code in the vignette. I started looking at whether the day of the week seems to make a big difference. In future drafts I hope to add more analysis of this. 
