@@ -157,14 +157,8 @@ tester2 %>% plot_lms(., col_names = c("lag_inf", "lag_comp", "lag_prob", "lag_ot
 ```
 
 #Answering Questions of HW 6
-1) I continued to work on my R package. I added some functionailty to my plot_lms function. It know also outputs the p-value for the coefficient of the slope of the line.
-
-2) I did try to add tidyverse commands to make my functions more readable. Although, some of my code would turn vectors into time series when I converted them to tibbles. So hopefully, I can fix that in the future. I think my code is more readable now, especially the code in the vignette. I started looking at whether the day of the week seems to make a big difference. In future drafts I hope to add more analysis of this. 
-
-3)a) I think that my chunks are pretty easy to understand. I'd like to add some more functions to my add analysis.
-
-
-b) Yes I think that I would like to make my function more applicable to other data sources. Also I'd like to do some significance testing with the days of the week.
-
-
-c) I think that my function do work well with other dataset. Although, I do not have any parts in my functions to check to make sure the data is in a good format. Also I would like to add more abilities for dataset with missing data. For the most part, I just remove them at this point. I think it is pretty easy to update my data considering my function "updating_heartRate" does that. I think someone could collect similar data and use my functions. They aren't overally complicated functions. I think the help files are understandable. Although, I would like to add more details to them if this were to go out into the public.
+1) I was able to connect my r package to github. I was able to push my package there. It took a little work but it works now. 
+2) I did set-up git on my computer as well.
+3) I synced my git with github.
+4) I've been trying to improve my package. I'm a little stuck at the moment though. Do you have any suggestions on what to look at next? Right now, nothing seems to be close to significant. So I'm not sure what to do about that. I'm thinking of adding more functions or doing some time series analysis. Although, I don't know a lot about time series analysis.
+5)Submitted a link.
