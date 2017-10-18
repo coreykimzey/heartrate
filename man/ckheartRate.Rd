@@ -14,7 +14,7 @@ ckheartRate
 
 
 \value{
-one dataset contain 17 observations over 9 variables.
+one dataset contain 21 observations over 9 variables.
 }
 
 \author{

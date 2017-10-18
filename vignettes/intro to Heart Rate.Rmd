@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 output: pdf_document
 ---
 #Description
-This package is used to do analysis on some resting heart rate data I have been collecting. It creates target heart ranges for excersing. Also it compares heart rate to it's moving average. The package also tries to fit some linear models.
+This package is used to do analysis on some resting heart rate data I have been collecting. It creates target heart ranges for excersing. Also it compares heart rate to it's moving average. The package also tries to fit some linear models. It can also create a scatter plot with the correlation listed as a title.
 ```{r, message = FALSE, warning=FALSE}
 library(knitr)
 library(heartrate)
@@ -17,11 +17,11 @@ library(forecast)
 
 Here are some examples of what you can do with my packages and some basic analysis:
 
-#sample Dataset
-I created a sample dataset. It has the first 21 days of data that I collected. Here is just the first couple of rows:
+#Sample Dataset
+I created a sample dataset. It has the first 21 days of data that I collected. This time I converted it into a tibble, so it would match the rest of the data. Here is just the first couple of rows:
 ```{r}
 data("ckheartRate")
-head(ckheartRate)
+ckheartRate
 ```
 
 #Updating Dataset
@@ -136,7 +136,7 @@ tester2 %>% plot_lms(., col_names = c("lag_sleep", "lag_walking", "lag_hwk_total
 ```
 
 
-Then I thought to just look at the indivdual classes and how much time I spend on those classes. Again I didn't see any statistically significant p-values for the correlation coefficient. Although, the variable for my probability class was close.
+Then I thought to just look at the indivdual classes and how much time I spend on those classes. Again I didn't see any statistically significant p-values for the correlation coefficient. 
 ```{r}
 
 

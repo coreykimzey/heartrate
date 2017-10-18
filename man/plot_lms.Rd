@@ -8,7 +8,7 @@ Plots multiple scatterplots with linear regression line
 This function will take multiple column names and plot scatterplots against "Resting Heart Rate". Then it fits a linear regression and adds that line. It also says at the bottom what the p-value for the slope coefficient is.
 }
 \usage{
-plot_lms(dataset, col_names, response_variable, ...)
+plot_lms(dataset, col_names, response_variable, multivariate = FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,13 +21,16 @@ This specifies with columns to plot and do the linear regression.
   \item{response_variable}{
 A character string of the column name of the response variable
 }
+  \item{multivariate}{
+This is should either be true or false. This determines if plot_lms fits a multivariate regression or it fits a linear regression to each of the columns selected.
+}
   \item{\dots}{
 This will pass to the abline function. Therefore, it will control things like color of that line. It doesn't currently do anything to the plotting of the points.
 }
 }
 
 \value{
-It will return as many plots as the length of the col_names vector. It also puts the function at the top of the figure.
+It will return as many plots as the length of the col_names vector. It shows the regression line fit (whether single or multivariate regression). It also puts the function at the top of the figure.
 }
 
 \author{
