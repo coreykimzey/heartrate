@@ -1,7 +1,7 @@
 Package: heartrate
 Type: Package
 Title: This package analysis resting heart rate data
-Version: 0.1.7
+Version: 0.1.8
 Author: Corey Kimzey
 Maintainer: Corey Kimzey <corey2kimzey@gmail.com>
 Description: This package was created for my intro to computing class at the University of Rochester. It makes analysis of my resting heart rate data easier.
