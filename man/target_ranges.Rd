@@ -44,8 +44,8 @@ Corey Kimzey 1st Year PHD Student Univesity of Rochester Department of Computati
 
 \examples{
 #This is based off of the sample data
-data(teseter)
-target_ranges(tester$`Resting Heart Rate`, ckheartRate$Day)
+data(tester)
+target_ranges(tester$`Resting Heart Rate`, tester$Day)
 
 
 }

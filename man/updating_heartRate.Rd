@@ -24,7 +24,7 @@ Will update with the most current data
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
- \code{\link{ckheartRate}}
+ \code{\link{tester}}
 }
 \examples{
 #will not run if don't have access to file
