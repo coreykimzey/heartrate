@@ -2,7 +2,7 @@
 \alias{ckheartRate}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Data collected from 9/12/2017 to 9/28/2017
+Data collected from 9/12/2017 to 12/07/2017.
 }
 \description{
 Data collected on resting heart rate as well as miles walked, time spent on homework (in each class and overall), and estimated amount of sleep

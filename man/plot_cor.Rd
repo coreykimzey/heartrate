@@ -30,9 +30,7 @@ It will return a series of plots, with the correlation as the title between the 
 \author{
 Corey Kimzey
 }
-\note{
-%%  ~~further notes~~
-}
+
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 

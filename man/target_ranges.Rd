@@ -41,12 +41,6 @@ This function returns a matrix of the low range and the high range for your targ
 \author{
 Corey Kimzey 1st Year PHD Student Univesity of Rochester Department of Computational Biology and Biostatistics
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
 
 \examples{
 #This is based off of the sample data

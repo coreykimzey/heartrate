@@ -5,7 +5,7 @@
 Comparing Actual Data to Moving Average
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This is a function used to compare actual data to the moving average on a plot.
 }
 \usage{
 plot_stressed(dataset_heartRate, dataset_time = NULL, order_of_smoother = 3,
@@ -39,27 +39,15 @@ This provides the ability to change some of the properties of the plot.
 This function currently plots the the moving average and the actual data. I think I should add some better labels.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+It will return a plot.
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
+
 \author{
 Corey Kimzey
 }
-\note{
-%%  ~~further notes~~
-}
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
+
 \examples{
 data(ckheartRate)
 plot_stressed(ckheartRate$"Resting Heart Rate")
