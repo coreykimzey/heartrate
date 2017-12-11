@@ -6,6 +6,13 @@ output: pdf_document
 ---
 #Description
 This package is used to do analysis on some resting heart rate data I have been collecting. It creates target heart ranges for excersing. Also it compares heart rate to it's moving average. The package also tries to fit some linear models. It can also create a scatter plot with the correlation listed as a title.
+
+#Objective
+I was hoping with this analysis to see if there was a relationship between my resting heart rate. I also want to look at some patterns with my resting heart rate. 
+#Experimental Design
+So I measured 10 Variable. 1) Date is just the date the rest of the variables were measured. 2) Day is just the number of days from the first day. 3) Resting Heart Rate was measured every morning (that I remembered) by counting my heart rate for 1 min. The first day I tried to use a resting heart rate monitor but it didn't seem to be working. 4) Miles Walking was the number of miles that my health app on my phone collected each day. 5) Inf is the number of hours that I studied for my Statistical Inference class. 6) Computing is the number of hours that I studied for Introduction to Statistical Computing. 7) Probability is the numbe of hours that I studied for Introduction to Probability. 8) Other is any other hours of studying that I wasn't for those classes. 9) Estimated Sleep is the amount of sleep that I had the night before I measured my heart rate. 10) Hrs on Hwk is just the sumation of 5), 6), 7), and 8).
+
+My dataset is really only representative of heart rate data for myself. It would be interesting to extend this to other people and see if others get similar results to me. There are many possible confounders. For instance, this experiment is not blinded. I was the one counting my own heart rate and I started anaylsis before I finished collecting data. Therefore, this could have affected the results of my study. Also there were days that I forgot to count my resting heart rate. Therefore, these missing data could have affected my results as well.
 ```{r, message = FALSE, warning=FALSE}
 library(knitr)
 library(heartrate)
@@ -123,7 +130,7 @@ kable(mean_ave_df)
 Although, currently if we look at the the Tukey Multiple comparison test with a 95% family wise confidence level. We see that none of the of comparisons are statistically significant.
 ```{r}
 saver <- TukeyHSD(aov(tester2$`Resting Heart Rate` ~ tester2$days_of_week))
-kable(saver$`tester$days_of_week`)
+kable(saver$`tester2$days_of_week`)
 ```
 Now I though I'd look at some of the vaiables I created before but now with the dataset without the outlier and looking at the lag of sleep, miles walking, and homework totals. This time I'm going to look at them all together or in other words fit a multivariate regression model. Again, we see that none of these covariates are statistically significant.
 
@@ -156,9 +163,7 @@ tester2 %>% plot_lms(., col_names = c("lag_inf", "lag_comp", "lag_prob", "lag_ot
                     response_variable = "Resting Heart Rate")
 ```
 
-#Answering Questions of HW 6
-1) I was able to connect my r package to github. I was able to push my package there. It took a little work but it works now. 
-2) I did set-up git on my computer as well.
-3) I synced my git with github.
-4) I've been trying to improve my package. I'm a little stuck at the moment though. Do you have any suggestions on what to look at next? Right now, nothing seems to be close to significant. So I'm not sure what to do about that. I'm thinking of adding more functions or doing some time series analysis. Although, I don't know a lot about time series analysis.
-5)Submitted a link.
+#Conclusion
+Also none of the variables seem to be highly correlated with my resting heart rate. Stress plot function also allows me to determine target heart rate. 
+#Limitations 
+There are many limitations to my analysis. For one instance, I only collected data on me, so it probably doesn't extend to everyone else. Also, I wasn't always great at keeping track of the variables I was interested in, so it probably isn't very accurate. I started off thinking I would use a heart rate monitor, but then it broke. So I had to keep track of it by counting the beats myself. This probably created some bias. Also I wish I knew more about time series analysis because that could be used in this setting. The length of the study was short. It would be intriguing to see how things were different if I did this for longer and added in more variables. Overall, I found this study really interesting and made me realize I should start tracking other things in my life.
