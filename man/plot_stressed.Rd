@@ -49,8 +49,8 @@ Corey Kimzey
 
 
 \examples{
-data(ckheartRate)
-plot_stressed(ckheartRate$"Resting Heart Rate")
+data(tester)
+plot_stressed(tester$"Resting Heart Rate")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

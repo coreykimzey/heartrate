@@ -1,5 +1,5 @@
-\name{ckheartRate}
-\alias{ckheartRate}
+\name{tester}
+\alias{tester}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Data collected from 9/12/2017 to 12/07/2017.

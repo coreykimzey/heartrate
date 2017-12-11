@@ -38,8 +38,8 @@ Corey Kimzey
 \code{\link{plot_lms}}
 }
 \examples{
-data(ckheartRate)
-plot_cor(ckheartRate, col_names = c("Inf", "Computing"), response_variable = "Resting Heart Rate")
+data(tester)
+plot_cor(tester, col_names = c("Inf", "Computing"), response_variable = "Resting Heart Rate")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
