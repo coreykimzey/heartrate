@@ -132,6 +132,8 @@ Although, currently if we look at the the Tukey Multiple comparison test with a 
 saver <- TukeyHSD(aov(tester2$`Resting Heart Rate` ~ tester2$days_of_week))
 kable(saver$`tester2$days_of_week`)
 ```
+
+
 Now I though I'd look at some of the vaiables I created before but now with the dataset without the outlier and looking at the lag of sleep, miles walking, and homework totals. This time I'm going to look at them all together or in other words fit a multivariate regression model. Again, we see that none of these covariates are statistically significant.
 
 ```{r}
